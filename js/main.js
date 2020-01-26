@@ -78,6 +78,7 @@ function showErrorCmd(command) {
 function showLscmd() {
     var consoleDisplay = document.getElementById("console-display");
     consoleDisplay.innerHTML += "GNU bash, version 5.0.11\(1\)-release \(x86_64-pc-linux-gnu\) These shell commands are defined internally.  Type `help' to see this help</br></br>";
+    consoleDisplay.innerHTML += "user info   - display user's information</br>";
     consoleDisplay.innerHTML += "lscmd   - display all commands available</br>";
     consoleDisplay.innerHTML += "help    - display help</br>";
 }

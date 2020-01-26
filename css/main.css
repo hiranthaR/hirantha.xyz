@@ -1,5 +1,4 @@
 .console-display{
-    margin: 20px;
     width: auto;
     height: 400px;
     color:white;
@@ -25,7 +24,10 @@ body{
     margin: 0;
     width: max-content;
     flex-grow: 1;
-    
+    outline: none;
+}
+.console-prompt:focus{
+    outline: none;
 }
 
 .console-prompt-uname{
