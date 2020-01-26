@@ -92,6 +92,9 @@ function handleCommand(command) {
         case "clear":
             clear();
             break;
+        case "user info":
+            userInfo();
+            break;
         default:
             showErrorCmd(command);
             break;
@@ -101,4 +104,15 @@ function handleCommand(command) {
 function clear(){
     var consoleDisplay = document.getElementById("console-display");
     consoleDisplay.innerHTML = "";
+}
+
+function userInfo(){
+    var consoleDisplay = document.getElementById("console-display");
+    consoleDisplay.innerHTML += "Infomation about logged user</br></br>";
+    consoleDisplay.innerHTML += "First name: Hirantha</br>";
+    consoleDisplay.innerHTML += "Last name: Rathnayake</br>";
+    consoleDisplay.innerHTML += "Birthday: 1996-06-18</br>";
+    consoleDisplay.innerHTML += "Address: Ginipenda, Kalugamuwa, Kurunegala, Sri Lanka</br>";
+    consoleDisplay.innerHTML += "Mobile number: <a href=\"callto:0094712492630\">+94712492630</a></br>";
+    consoleDisplay.innerHTML += "Email: <a href=\"mailto:mail@hirantha.xyz\">mail@hirantha.xyz</a></br>";
 }
