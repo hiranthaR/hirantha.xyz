@@ -1,6 +1,10 @@
 var isPausePrompt = true;
 var promptId = 0;
 
+$("#console-display").on("click",function(){
+    $("#console-prompt").focus();
+});
+
 // function promptUnderLine() {
 //     if (isPausePrompt) return;
 //     var consoleDisplay = document.getElementById("console-display");
@@ -30,7 +34,13 @@ var y = n.getFullYear();
 var m = n.getMonth() + 1;
 var d = n.getDate();
 var day = n.getDay();
+
+var sec = n.getSeconds()
+var min = n.getMinutes()
+var hh = n.getHours() > 12 ? n.getHours() - 12 : n.getHours();
+var ampm = n.getHours() > 12 ? "PM" : "AM"
 document.getElementById("date").innerHTML = days[day] + " " + d + " " + months[m] + " " + y;
+document.getElementById("time").innerHTML = hh + ":" + min + ":" + sec + " " + ampm;
 
 function handlePrompt() {
     var consoleDisplay = document.getElementById("console-display");
@@ -41,7 +51,7 @@ function handlePrompt() {
     displayHtml = displayHtml.replace(consolePromptLine.innerHTML, oldPromptLine);
     displayHtml = displayHtml.replace(consolePrompt.outerHTML, "");
     consoleDisplay.innerHTML = displayHtml;
-    consoleDisplay.innerHTML += "sex";
+    handleCommand(consolePrompt.value.trim());
     var newPromptLine = consolePromptLine.outerHTML.replace("console-prompt-line-" + promptId, "console-prompt-line-" + ++promptId);
     consoleDisplay.innerHTML += newPromptLine;
     addEventListenerForConsolePrompt();
@@ -60,4 +70,35 @@ function addEventListenerForConsolePrompt() {
     });
 }
 
-showDate()
+function showErrorCmd(command) {
+    var consoleDisplay = document.getElementById("console-display");
+    consoleDisplay.innerHTML += "bash: " + command.split(" ")[0] + ": command not found";
+}
+
+function showLscmd() {
+    var consoleDisplay = document.getElementById("console-display");
+    consoleDisplay.innerHTML += "GNU bash, version 5.0.11\(1\)-release \(x86_64-pc-linux-gnu\) These shell commands are defined internally.  Type `help' to see this help</br></br>";
+    consoleDisplay.innerHTML += "lscmd   - display all commands available</br>";
+    consoleDisplay.innerHTML += "help    - display help</br>";
+}
+
+function handleCommand(command) {
+    switch (command) {
+        case "":
+            break;
+        case "lscmd":
+            showLscmd();
+            break;
+        case "clear":
+            clear();
+            break;
+        default:
+            showErrorCmd(command);
+            break;
+    }
+}
+
+function clear(){
+    var consoleDisplay = document.getElementById("console-display");
+    consoleDisplay.innerHTML = "";
+}
