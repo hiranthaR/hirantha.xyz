@@ -1,7 +1,7 @@
 var isPausePrompt = true;
 var promptId = 0;
 
-$("#console-display").on("click",function(){
+$("#console-display").on("click", function () {
     $("#console-prompt").focus();
 });
 
@@ -78,9 +78,10 @@ function showErrorCmd(command) {
 function showLscmd() {
     var consoleDisplay = document.getElementById("console-display");
     consoleDisplay.innerHTML += "GNU bash, version 5.0.11\(1\)-release \(x86_64-pc-linux-gnu\) These shell commands are defined internally.  Type `help' to see this help</br></br>";
-    consoleDisplay.innerHTML += "user info   - display user's information</br>";
-    consoleDisplay.innerHTML += "lscmd   - display all commands available</br>";
-    consoleDisplay.innerHTML += "help    - display help</br>";
+    consoleDisplay.innerHTML += "user info - display user's information</br>";
+    consoleDisplay.innerHTML += "lscmd - display all commands available</br>";
+    consoleDisplay.innerHTML += "clear - clear the console</br>";
+    consoleDisplay.innerHTML += "help - display help</br></b>";
 }
 
 function handleCommand(command) {
@@ -96,24 +97,34 @@ function handleCommand(command) {
         case "user info":
             userInfo();
             break;
+        case "help":
+            help();
+            break;
         default:
             showErrorCmd(command);
             break;
     }
 }
 
-function clear(){
+function clear() {
     var consoleDisplay = document.getElementById("console-display");
     consoleDisplay.innerHTML = "";
 }
 
-function userInfo(){
+function userInfo() {
     var consoleDisplay = document.getElementById("console-display");
     consoleDisplay.innerHTML += "Infomation about logged user</br></br>";
-    consoleDisplay.innerHTML += "First name: Hirantha</br>";
-    consoleDisplay.innerHTML += "Last name: Rathnayake</br>";
+    consoleDisplay.innerHTML += "First name: Hirantha Rathnayake</br>";
     consoleDisplay.innerHTML += "Birthday: 1996-06-18</br>";
     consoleDisplay.innerHTML += "Address: Ginipenda, Kalugamuwa, Kurunegala, Sri Lanka</br>";
     consoleDisplay.innerHTML += "Mobile number: <a href=\"callto:0094712492630\">+94712492630</a></br>";
-    consoleDisplay.innerHTML += "Email: <a href=\"mailto:mail@hirantha.xyz\">mail@hirantha.xyz</a></br>";
+    consoleDisplay.innerHTML += "Email: <a href=\"mailto:mail@hirantha.xyz\">mail@hirantha.xyz</a></br></br>";
+}
+
+function help(){
+    var consoleDisplay = document.getElementById("console-display");
+    consoleDisplay.innerHTML += "Welcome to Hirantha's Laptop.</br>"; 
+    consoleDisplay.innerHTML += "Console version: 5.7.26-1+b1 (Debian)</br>"; 
+    consoleDisplay.innerHTML += "This console will help you to observe about the owner of this Laptop</br></br>"; 
+    consoleDisplay.innerHTML += "Type 'lscmd' for list down all commands available in this console</br></br>"; 
 }

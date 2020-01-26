@@ -1,6 +1,6 @@
 .console-display{
     width: auto;
-    height: 400px;
+    height: 100%; 
     color:white;
     background-color:#2b2b2b;
     padding: 7px;
@@ -12,6 +12,15 @@
 
 body{
     background-color: #333;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    height: 98%;
+    padding: 0;
+    margin: 0;
 }
 
 .console-prompt{
@@ -35,6 +44,10 @@ body{
     font-weight: 600;
 }
 .console-prompt-host{
-    color:#3867c2;
+    color:#5497f0;
     font-weight: 600;
+}
+
+a{
+    color: white;
 }
