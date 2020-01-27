@@ -1,7 +1,8 @@
 var isPausePrompt = true;
 var promptId = 0;
 
-initialize();
+
+$(document).ready(() => initialize());
 async function initialize() {
     var consoleDisplay = document.getElementById("console-display");
     var consoleDisplayInnerHtml = `Welcome to the console of Hirantha's Laptop.<br>
