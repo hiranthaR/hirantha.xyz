@@ -1,29 +1,62 @@
 var isPausePrompt = true;
 var promptId = 0;
 
+initialize();
+async function initialize() {
+    var consoleDisplay = document.getElementById("console-display");
+    var consoleDisplayInnerHtml = `Welcome to the console of Hirantha's Laptop.<br>
+    Type 'lscmd' for list down all commands available to use.Type 'help' for help.
+    <br>
+    Date: <span id="date"></span> Time: <span id="time"></span>
+    <br>
+    <br>
+    example: <br>
+    user info
+    <div style="display: flex;" id="console-prompt-line-0">
+      <span class="console-prompt-uname">hirantha</span><span class="console-prompt-host">@debian</span>:~$
+      <input type="text" class="console-prompt" id="console-prompt">
+    </div>
+  </div>`;
+    consoleDisplay.innerHTML = "$ Initializing hydra attack";
+    await sleep(250);
+    consoleDisplay.innerHTML = "$ Initializing hydra attack.";
+    await sleep(250);
+    consoleDisplay.innerHTML = "$ Initializing hydra attack..";
+    await sleep(250);
+    consoleDisplay.innerHTML = "$ Initializing hydra attack...";
+    await sleep(250);
+    consoleDisplay.innerHTML = "$ Initializing hydra attack";
+    await sleep(250);
+    consoleDisplay.innerHTML = "$ Initializing hydra attack.";
+    await sleep(250);
+    consoleDisplay.innerHTML = "$ Initializing hydra attack..";
+    await sleep(300);
+    consoleDisplay.innerHTML += "</br>$ Executing hydra attack...</br>$ hydra -l hirantha -P passlist.txt ssh://hirantha.xyz";
+    await sleep(800);
+    consoleDisplay.innerHTML += "</br>$ Attack Succuess!";
+    await sleep(100);
+    consoleDisplay.innerHTML += "</br>$ Hail, you are in the system now..";
+    
+    var anonymous = `</br></br></br></br></br><center>
+    '##:::::'##:'########:'##::::::::'######:::'#######::'##::::'##:'########:</br>
+     ##:'##: ##: ##.....:: ##:::::::'##... ##:'##.... ##: ###::'###: ##.....::</br>
+     ##: ##: ##: ##::::::: ##::::::: ##:::..:: ##:::: ##: ####'####: ##:::::::</br>
+     ##: ##: ##: ######::: ##::::::: ##::::::: ##:::: ##: ## ### ##: ######:::</br>
+     ##: ##: ##: ##...:::: ##::::::: ##::::::: ##:::: ##: ##. #: ##: ##...::::</br>
+     ##: ##: ##: ##::::::: ##::::::: ##::: ##: ##:::: ##: ##:.:: ##: ##:::::::</br>
+    . ###. ###:: ########: ########:. ######::. #######:: ##:::: ##: ########:</br>
+    :...::...:::........::........:::......::::.......:::..:::::..::........::</br>                                                                
+ </center>`
+    consoleDisplay.innerHTML += anonymous;
+    await sleep(1400);
+    consoleDisplay.innerHTML = consoleDisplayInnerHtml;
+    setFocusToPrompt()
+}
+
+
 $("#console-display").on("click", function () {
     $("#console-prompt").focus();
 });
-
-// function promptUnderLine() {
-//     if (isPausePrompt) return;
-//     var consoleDisplay = document.getElementById("console-display");
-//     if (consoleDisplay.innerText.slice(-1) === "_") {
-//         consoleDisplay.innerHTML = consoleDisplay.innerText.substring(0, consoleDisplay.innerText.length - 2);
-//     } else {
-//         consoleDisplay.innerHTML = consoleDisplay.innerText + " _";
-//     }
-// }
-
-// setInterval(promptUnderLine, 700);
-
-// function pausePrompt() {
-//     isPausePrompt = !isPausePrompt;
-//     var consoleDisplay = document.getElementById("console-display");
-//     if (consoleDisplay.innerText.slice(-1) === "_") {
-//         consoleDisplay.innerHTML = consoleDisplay.innerText.substring(0, consoleDisplay.innerText.length - 2);
-//     }
-// }
 
 addEventListenerForConsolePrompt()
 setFocusToPrompt()
