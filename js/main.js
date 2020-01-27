@@ -42,7 +42,7 @@ var ampm = n.getHours() > 12 ? "PM" : "AM"
 document.getElementById("date").innerHTML = days[day] + " " + d + " " + months[m] + " " + y;
 document.getElementById("time").innerHTML = hh + ":" + min + ":" + sec + " " + ampm;
 
-function handlePrompt() {
+async function handlePrompt() {
     var consoleDisplay = document.getElementById("console-display");
     var consolePrompt = document.getElementById("console-prompt");
     var consolePromptLine = document.getElementById("console-prompt-line-" + promptId);
@@ -51,7 +51,7 @@ function handlePrompt() {
     displayHtml = displayHtml.replace(consolePromptLine.innerHTML, oldPromptLine);
     displayHtml = displayHtml.replace(consolePrompt.outerHTML, "");
     consoleDisplay.innerHTML = displayHtml;
-    handleCommand(consolePrompt.value.trim());
+    await handleCommand(consolePrompt.value.trim());
     var newPromptLine = consolePromptLine.outerHTML.replace("console-prompt-line-" + promptId, "console-prompt-line-" + ++promptId);
     consoleDisplay.innerHTML += newPromptLine;
     addEventListenerForConsolePrompt();
@@ -79,12 +79,15 @@ function showLscmd() {
     var consoleDisplay = document.getElementById("console-display");
     consoleDisplay.innerHTML += "GNU bash, version 5.0.11\(1\)-release \(x86_64-pc-linux-gnu\) These shell commands are defined internally.  Type `help' to see this help</br></br>";
     consoleDisplay.innerHTML += "user info - display user's information</br>";
+    consoleDisplay.innerHTML += "open github - open the user's github account</br>";
+    consoleDisplay.innerHTML += "open facebook - open the user's facebook account</br>";
+    consoleDisplay.innerHTML += "user info - display user's information</br>";
     consoleDisplay.innerHTML += "lscmd - display all commands available</br>";
     consoleDisplay.innerHTML += "clear - clear the console</br>";
-    consoleDisplay.innerHTML += "help - display help</br></b>";
+    consoleDisplay.innerHTML += "help - display help</br></br>";
 }
 
-function handleCommand(command) {
+async function handleCommand(command) {
     switch (command) {
         case "":
             break;
@@ -99,6 +102,12 @@ function handleCommand(command) {
             break;
         case "help":
             help();
+            break;
+        case "open github":
+            await openGithub();
+            break;
+        case "open facebook":
+            await openFacebook();
             break;
         default:
             showErrorCmd(command);
@@ -121,10 +130,30 @@ function userInfo() {
     consoleDisplay.innerHTML += "Email: <a href=\"mailto:mail@hirantha.xyz\">mail@hirantha.xyz</a></br></br>";
 }
 
-function help(){
+function help() {
     var consoleDisplay = document.getElementById("console-display");
-    consoleDisplay.innerHTML += "Welcome to Hirantha's Laptop.</br>"; 
-    consoleDisplay.innerHTML += "Console version: 5.7.26-1+b1 (Debian)</br>"; 
-    consoleDisplay.innerHTML += "This console will help you to observe about the owner of this Laptop</br></br>"; 
-    consoleDisplay.innerHTML += "Type 'lscmd' for list down all commands available in this console</br></br>"; 
+    consoleDisplay.innerHTML += "Welcome to Hirantha's Laptop.</br>";
+    consoleDisplay.innerHTML += "Console version: 5.7.26-1+b1 (Debian)</br>";
+    consoleDisplay.innerHTML += "This console will help you to observe about the owner of this Laptop</br></br>";
+    consoleDisplay.innerHTML += "Type 'lscmd' for list down all commands available in this console</br></br>";
+}
+
+async function openGithub() {
+    var consoleDisplay = document.getElementById("console-display");
+    consoleDisplay.innerHTML += "Opening github profile...</br>";
+    await sleep(200);
+    window.open("https://www.github.com/hiranthaR", "_blank").focus();
+    consoleDisplay.innerHTML += "Github profile opened...</br></br>";
+}
+
+async function openFacebook() {
+    var consoleDisplay = document.getElementById("console-display");
+    consoleDisplay.innerHTML += "Opening facebook profile...</br>";
+    await sleep(200);
+    window.open("https://www.facebook.com/sahanhirantha", "_blank").focus();
+    consoleDisplay.innerHTML += "Facebook profile opened...</br></br>";
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
