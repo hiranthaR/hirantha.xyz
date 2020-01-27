@@ -36,7 +36,7 @@ async function initialize() {
     consoleDisplay.innerHTML += "</br>$ Attack Succuess!";
     await sleep(100);
     consoleDisplay.innerHTML += "</br>$ Hail, you are in the system now..";
-    
+
     var anonymous = `</br></br></br></br></br><center>
     '##:::::'##:'########:'##::::::::'######:::'#######::'##::::'##:'########:</br>
      ##:'##: ##: ##.....:: ##:::::::'##... ##:'##.... ##: ###::'###: ##.....::</br>
@@ -48,32 +48,31 @@ async function initialize() {
     :...::...:::........::........:::......::::.......:::..:::::..::........::</br>                                                                
  </center>`
     consoleDisplay.innerHTML += anonymous;
-    await sleep(1400);
+    await sleep(1600);
     consoleDisplay.innerHTML = consoleDisplayInnerHtml;
+    $("#console-display").on("click", function () {
+        $("#console-prompt").focus();
+    });
+
+    addEventListenerForConsolePrompt()
     setFocusToPrompt()
+
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var n = new Date();
+    var y = n.getFullYear();
+    var m = n.getMonth() + 1;
+    var d = n.getDate();
+    var day = n.getDay();
+
+    var sec = n.getSeconds()
+    var min = n.getMinutes()
+    var hh = n.getHours() > 12 ? n.getHours() - 12 : n.getHours();
+    var ampm = n.getHours() > 12 ? "PM" : "AM"
+    document.getElementById("date").innerHTML = days[day] + " " + d + " " + months[m] + " " + y;
+    document.getElementById("time").innerHTML = hh + ":" + min + ":" + sec + " " + ampm;
+
 }
-
-
-$("#console-display").on("click", function () {
-    $("#console-prompt").focus();
-});
-
-addEventListenerForConsolePrompt()
-setFocusToPrompt()
-var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-var n = new Date();
-var y = n.getFullYear();
-var m = n.getMonth() + 1;
-var d = n.getDate();
-var day = n.getDay();
-
-var sec = n.getSeconds()
-var min = n.getMinutes()
-var hh = n.getHours() > 12 ? n.getHours() - 12 : n.getHours();
-var ampm = n.getHours() > 12 ? "PM" : "AM"
-document.getElementById("date").innerHTML = days[day] + " " + d + " " + months[m] + " " + y;
-document.getElementById("time").innerHTML = hh + ":" + min + ":" + sec + " " + ampm;
 
 async function handlePrompt() {
     var consoleDisplay = document.getElementById("console-display");
