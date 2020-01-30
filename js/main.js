@@ -112,9 +112,9 @@ function showLscmd() {
     var consoleDisplay = document.getElementById("console-display");
     consoleDisplay.innerHTML += "GNU bash, version 5.0.11\(1\)-release \(x86_64-pc-linux-gnu\) These shell commands are defined internally.  Type `help' to see this help</br></br>";
     consoleDisplay.innerHTML += "user info - display user's information</br>";
+    consoleDisplay.innerHTML += "user contacts - display user's Contact details</br>";
     consoleDisplay.innerHTML += "open github - open the user's github account</br>";
     consoleDisplay.innerHTML += "open facebook - open the user's facebook account</br>";
-    consoleDisplay.innerHTML += "user info - display user's information</br>";
     consoleDisplay.innerHTML += "lscmd - display all commands available</br>";
     consoleDisplay.innerHTML += "clear - clear the console</br>";
     consoleDisplay.innerHTML += "help - display help</br></br>";
@@ -132,6 +132,9 @@ async function handleCommand(command) {
             break;
         case "user info":
             userInfo();
+            break;
+        case "user contacts":
+            userContacts();
             break;
         case "help":
             help();
@@ -163,6 +166,16 @@ function userInfo() {
     consoleDisplay.innerHTML += "Email: <a href=\"mailto:mail@hirantha.xyz\">mail@hirantha.xyz</a></br></br>";
 }
 
+function userContacts() {
+    var consoleDisplay = document.getElementById("console-display");
+    consoleDisplay.innerHTML += "Infomation about logged user's contact details</br></br>";
+    consoleDisplay.innerHTML += "Address: Ginipenda, Kalugamuwa, Kurunegala, Sri Lanka</br>";
+    consoleDisplay.innerHTML += "Mobile number: <a href=\"callto:0094712492630\">+94712492630</a></br>";
+    consoleDisplay.innerHTML += "Email: <a href=\"mailto:mail@hirantha.xyz\">mail@hirantha.xyz</a></br>";
+    consoleDisplay.innerHTML += "Facebook : <a href=\"https://www.facebook.com/sahanhirantha\" traget=\"blank\">https://www.facebook.com/sahanhirantha (Hirantha)</a></br>";
+    consoleDisplay.innerHTML += "Github : <a href=\"https://www.github.com/hiranthaR\" traget=\"blank\">https://www.github.com/hiranthaR (hiranthaR)</a></br></br>";
+}
+
 function help() {
     var consoleDisplay = document.getElementById("console-display");
     consoleDisplay.innerHTML += "Welcome to Hirantha's Laptop.</br>";
@@ -190,3 +203,4 @@ async function openFacebook() {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
