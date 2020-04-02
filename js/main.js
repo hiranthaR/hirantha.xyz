@@ -205,31 +205,61 @@ function clear() {
 
 function userInfo() {
   var consoleDisplay = document.getElementById("console-display");
-  consoleDisplay.innerHTML += "Infomation about logged user</br></br>";
-  consoleDisplay.innerHTML += "First name: Hirantha Rathnayake</br>";
-  consoleDisplay.innerHTML += "Birthday: 1996-06-18</br>";
-  consoleDisplay.innerHTML +=
-    "Address: Ginipenda, Kalugamuwa, Kurunegala, Sri Lanka</br>";
-  consoleDisplay.innerHTML +=
-    'Mobile number: <a href="callto:0094712492630">+94712492630</a></br>';
-  consoleDisplay.innerHTML +=
-    'Email: <a href="mailto:mail@hirantha.xyz">mail@hirantha.xyz</a></br></br>';
+  var userInfo = "";
+
+  userInfo += "Infomation about logged user</br></br>";
+  userInfo += `<table style="width:100%">`;
+  userInfo += createRow("Name", "Hirantha Rathnayake");
+  userInfo += createRow("Birthday", "1996-06-18");
+  userInfo += createRow(
+    "Address",
+    "Ginipenda, Kalugamuwa, Kurunegala, Sri Lanka"
+  );
+  userInfo += createRow(
+    "Mobile number",
+    '<a href="callto:0094712492630">+94712492630</a>'
+  );
+  userInfo += createRow(
+    "Email",
+    '<a href="mailto:mail@hirantha.xyz">mail@hirantha.xyz</a>'
+  );
+  userInfo += "</table></br>";
+
+  consoleDisplay.innerHTML += userInfo;
+}
+
+function createRow(key, value) {
+  return `<tr><td>${key}:</td><td>- ${value}</td></tr>`;
 }
 
 function userContacts() {
   var consoleDisplay = document.getElementById("console-display");
-  consoleDisplay.innerHTML +=
-    "Infomation about logged user's contact details</br></br>";
-  consoleDisplay.innerHTML +=
-    "Address: Ginipenda, Kalugamuwa, Kurunegala, Sri Lanka</br>";
-  consoleDisplay.innerHTML +=
-    'Mobile number: <a href="callto:0094712492630">+94712492630</a></br>';
-  consoleDisplay.innerHTML +=
-    'Email: <a href="mailto:mail@hirantha.xyz">mail@hirantha.xyz</a></br>';
-  consoleDisplay.innerHTML +=
-    'Facebook : <a href="https://www.facebook.com/sahanhirantha" traget="blank">https://www.facebook.com/sahanhirantha (Hirantha)</a></br>';
-  consoleDisplay.innerHTML +=
-    'Github : <a href="https://www.github.com/hiranthaR" traget="blank">https://www.github.com/hiranthaR (hiranthaR)</a></br></br>';
+  var userContacts = "";
+
+  userContacts += "Infomation about logged user's contact details</br></br>";
+  userContacts += `<table style="width:100%">`;
+  userContacts += createRow(
+    "Address",
+    `Ginipenda, Kalugamuwa, Kurunegala, Sri Lanka`
+  );
+  userContacts += createRow(
+    "Mobile number",
+    `<a href="callto:0094712492630">+94712492630</a>`
+  );
+  userContacts += createRow(
+    "Email",
+    `<a href="mailto:mail@hirantha.xyz">mail@hirantha.xyz</a>`
+  );
+  userContacts += createRow(
+    "Facebook",
+    ` <a href="https://www.facebook.com/sahanhirantha" traget="blank">https://www.facebook.com/sahanhirantha (Hirantha)</a>`
+  );
+  userContacts += createRow(
+    "Github",
+    ` <a href="https://www.github.com/hiranthaR" traget="blank">https://www.github.com/hiranthaR (hiranthaR)</a>`
+  );
+  userContacts += `</table></br>`;
+  consoleDisplay.innerHTML += userContacts;
 }
 
 function help() {
