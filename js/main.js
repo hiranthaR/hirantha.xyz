@@ -153,18 +153,23 @@ function showErrorCmd(command) {
 
 function showLscmd() {
   var consoleDisplay = document.getElementById("console-display");
-  consoleDisplay.innerHTML +=
+  var commands = "";
+
+  commands +=
     "GNU bash, version 5.0.11(1)-release (x86_64-pc-linux-gnu) These shell commands are defined internally.  Type `help' to see this help</br></br>";
-  consoleDisplay.innerHTML += "user info - display user's information</br>";
-  consoleDisplay.innerHTML +=
-    "user contacts - display user's Contact details</br>";
-  consoleDisplay.innerHTML +=
-    "open github - open the user's github account</br>";
-  consoleDisplay.innerHTML +=
-    "open facebook - open the user's facebook account</br>";
-  consoleDisplay.innerHTML += "lscmd - display all commands available</br>";
-  consoleDisplay.innerHTML += "clear - clear the console</br>";
-  consoleDisplay.innerHTML += "help - display help</br></br>";
+
+  commands += "<table>";
+  commands += createRow("user info", "display user's information");
+  commands += createRow("user contacts", "display user's Contact details");
+  commands += createRow("open github", "open the user's github account");
+  commands += createRow("open facebook", "open the user's facebook account");
+  commands += createRow("lscmd", "display all commands available");
+  commands += createRow("clear", "clear the console");
+  commands += createRow("help", "display help");
+
+  commands += "</table>";
+
+  consoleDisplay.innerHTML = commands;
 }
 
 async function handleCommand(command) {
@@ -229,7 +234,7 @@ function userInfo() {
 }
 
 function createRow(key, value) {
-  return `<tr><td>${key}:</td><td>- ${value}</td></tr>`;
+  return `<tr><td>${key}</td><td>- ${value}</td></tr>`;
 }
 
 function userContacts() {
