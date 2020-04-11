@@ -10,9 +10,16 @@ async function initialize() {
       var project = JSON.parse(json)[projectName];
 
       document.title = project.title;
-      document.getElementById("logo").src = project.logo;
+      document.getElementById("logo").src = project.logo.link;
+      document.getElementById("logo").style.width = project.logo.width;
+      document.getElementById("logo").style.height = project.logo.height;
 
-      document.getElementById("github").href = project.github.link;
-      document.getElementById("github").innerHTML = "  " + project.github.name;
+      project.links.forEach((element) => {
+        document.getElementById("links-panel").innerHTML += `
+        <a href="${element.link}" target="blank">
+        <button class="links-panel-btn">
+        <i class="fa ${element.fa_class}"></i> ${element.name}
+        </button></a>`;
+      });
     });
 }

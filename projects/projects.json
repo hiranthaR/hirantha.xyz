@@ -1,11 +1,49 @@
 {
   "treflor": {
     "title": "Treflor",
-    "logo": "treflor/logo.png",
+    "logo": {
+      "link": "treflor/logo.png",
+      "width": "300px",
+      "height": "100px"
+    },
     "icon": "treflor/icon.png",
-    "github": {
-      "name": "Treflor",
-      "link": "https://github.com/Treflor/mobile"
-    }
+    "links": [
+      {
+        "name": "Treflor repositories",
+        "link": "https://github.com/Treflor/",
+        "fa_class": "fa-github"
+      },
+      {
+        "name": "Treflor mobile",
+        "link": "https://github.com/Treflor/mobile",
+        "fa_class": "fa-github"
+      },
+      {
+        "name": "Treflor backend",
+        "link": "https://github.com/Treflor/backend",
+        "fa_class": "fa-github"
+      }
+    ]
+  },
+  "json-to-dart": {
+    "title": "Json to Dart Model",
+    "logo": {
+      "link": "json-to-dart/icon.png",
+      "width": "200px",
+      "height": "200px"
+    },
+    "icon": "json-to-dart/icon.png",
+    "links": [
+      {
+        "name": "Github repository",
+        "link": "https://github.com/hiranthaR/Json-to-Dart-Model",
+        "fa_class": "fa-github"
+      },
+      {
+        "name": "VS Marketplace",
+        "link": "https://marketplace.visualstudio.com/items?itemName=hirantha.json-to-dart",
+        "fa_class": "fa-download"
+      }
+    ]
   }
 }
