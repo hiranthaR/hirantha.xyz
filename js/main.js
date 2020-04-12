@@ -64,7 +64,7 @@ async function initialize() {
   </div>`;
 
   consoleDisplay.innerHTML = consoleDisplayInnerHtml;
-  $("#console-display").on("click", function() {
+  $("#console-display").on("click", function () {
     $("#console-prompt").focus();
   });
 
@@ -83,7 +83,7 @@ async function initialize() {
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ];
   var days = [
     "Sunday",
@@ -92,7 +92,7 @@ async function initialize() {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
   var n = new Date();
   var y = n.getFullYear();
@@ -138,7 +138,7 @@ function setFocusToPrompt() {
 function addEventListenerForConsolePrompt() {
   document
     .getElementById("console-prompt")
-    .addEventListener("keypress", function(event) {
+    .addEventListener("keypress", function (event) {
       if (event.keyCode === 13) {
         handlePrompt();
       }
@@ -161,6 +161,7 @@ function showLscmd() {
   commands += "<table>";
   commands += createRow("user info", "display user's information");
   commands += createRow("user contacts", "display user's Contact details");
+  commands += createRow("show projects", "display user's projects");
   commands += createRow("open github", "open the user's github account");
   commands += createRow("open facebook", "open the user's facebook account");
   commands += createRow("lscmd", "display all commands available");
@@ -190,6 +191,9 @@ async function handleCommand(command) {
       break;
     case "help":
       help();
+      break;
+    case "show projects":
+      projects();
       break;
     case "open github":
       await openGithub();
@@ -257,11 +261,11 @@ function userContacts() {
   );
   userContacts += createRow(
     "Facebook",
-    ` <a href="https://www.facebook.com/sahanhirantha" traget="blank">https://www.facebook.com/sahanhirantha (Hirantha)</a>`
+    ` <a href="https://www.facebook.com/sahanhirantha" target="blank">https://www.facebook.com/sahanhirantha (Hirantha)</a>`
   );
   userContacts += createRow(
     "Github",
-    ` <a href="https://www.github.com/hiranthaR" traget="blank">https://www.github.com/hiranthaR (hiranthaR)</a>`
+    ` <a href="https://www.github.com/hiranthaR" target="blank">https://www.github.com/hiranthaR (hiranthaR)</a>`
   );
   userContacts += `</table></br>`;
   consoleDisplay.innerHTML += userContacts;
@@ -275,6 +279,27 @@ function help() {
     "This console will help you to observe about the owner of this Laptop</br></br>";
   consoleDisplay.innerHTML +=
     "Type 'lscmd' for list down all commands available in this console</br></br>";
+}
+
+function projects() {
+  var consoleDisplay = document.getElementById("console-display");
+  var projects = "";
+
+  projects += "There are some projects of Hirantha.</br></br>";
+
+  projects += "<table>";
+  projects += createRow(
+    `<a href="/projects/?project=treflor" target="blank">Project Treflor</a>`,
+    " Project Treflor - ultimate hikers guide"
+  );
+  projects += createRow(
+    ` <a href="/projects/?project=json-to-dart" target="blank">Json to Dart</a>`,
+    "Json to dart vs code extension"
+  );
+
+  projects += "</table>";
+
+  consoleDisplay.innerHTML += projects;
 }
 
 async function openGithub() {
@@ -294,5 +319,5 @@ async function openFacebook() {
 }
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
