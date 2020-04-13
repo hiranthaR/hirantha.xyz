@@ -170,7 +170,7 @@ function showLscmd() {
 
   commands += "</table>";
 
-  consoleDisplay.innerHTML = commands;
+  consoleDisplay.innerHTML += commands;
 }
 
 async function handleCommand(command) {
