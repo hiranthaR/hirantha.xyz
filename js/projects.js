@@ -21,5 +21,7 @@ async function initialize() {
         <i class="fa ${element.fa_class}"></i> ${element.name}
         </button></a>`;
       });
+
+      document.getElementById("description").innerHTML = project.description;
     });
 }

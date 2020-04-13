@@ -36,3 +36,15 @@ body {
 .links-panel-btn:hover {
   background-color: RoyalBlue;
 }
+
+.description {
+  color: white;
+  padding: 0px 20px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+a {
+  color: white;
+  outline: none;
+}
