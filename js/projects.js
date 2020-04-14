@@ -12,7 +12,7 @@ async function initialize() {
       document.title = project.title;
       document.getElementById("logo").src = project.logo.link;
       document.getElementById("logo").style.width = project.logo.width;
-      document.getElementById("logo").style.height = project.logo.height;
+      //   document.getElementById("logo").style.height = project.logo.height;
 
       project.links.forEach((element) => {
         document.getElementById("links-panel").innerHTML += `
@@ -23,5 +23,13 @@ async function initialize() {
       });
 
       document.getElementById("description").innerHTML = project.description;
+
+      project.screenshots.forEach((ss) => {
+        document.getElementById("screenshots").innerHTML += getImageHtml(ss);
+      });
     });
+}
+
+function getImageHtml(ss) {
+  return `<img src="${ss.link}" width="${ss.width}" class="screenshot"/>`;
 }

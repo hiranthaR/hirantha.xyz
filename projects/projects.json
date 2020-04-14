@@ -24,7 +24,24 @@
         "fa_class": "fa-github"
       }
     ],
-    "description": "Ultimate hikers’ guide into the wilderness. I did this project for the 2nd year group project. Mainly, this is a mobile application based solution for solo travellers. This app facilitate traveller to find/share unknown paths with others where google map can't help on routes. From the mobile app, travellers can record their path and upload in to the treflor servers. Not only paths, app gives features to mark special landmarks, maintain photo albums, share with friends, etc . Then other travellers can use previous data to enjoy a safe journey."
+    "description": "Ultimate hikers’ guide into the wilderness. I did this project for the 2nd year group project. Mainly, this is a mobile application based solution for solo travellers. This app facilitate traveller to find/share unknown paths with others where google map can't help on routes. From the mobile app, travellers can record their path and upload in to the treflor servers. Not only paths, app gives features to mark special landmarks, maintain photo albums, share with friends, etc . Then other travellers can use previous data to enjoy a safe journey.",
+    "screenshots": [
+      {
+        "link": "treflor/screenshots/ss-0.jpeg",
+        "width": "250px",
+        "height": "500px"
+      },
+      {
+        "link": "treflor/screenshots/ss-1.jpeg",
+        "width": "250px",
+        "height": "500px"
+      },
+      {
+        "link": "treflor/screenshots/ss-2.jpeg",
+        "width": "250px",
+        "height": "500px"
+      }
+    ]
   },
   "json-to-dart": {
     "title": "Json to Dart Model",
@@ -46,6 +63,18 @@
         "fa_class": "fa-download"
       }
     ],
-    "description": "This library is designed to generate Flutter friendly model classes following the <a href=\"https://flutter.io/json/#serializing-json-manually-using-dartconvert\">flutter's doc recommendation</a>. Extension supports for both Serializing JSON manually and Serializing JSON using code generation libraries."
+    "description": "This library is designed to generate Flutter friendly model classes following the <a href=\"https://flutter.io/json/#serializing-json-manually-using-dartconvert\">flutter's doc recommendation</a>. Extension supports for both Serializing JSON manually and Serializing JSON using code generation libraries.",
+    "screenshots": [
+      {
+        "link": "json-to-dart/screenshots/ss-0.png",
+        "width": "350px",
+        "height": "500px"
+      },
+      {
+        "link": "json-to-dart/screenshots/ss-1.png",
+        "width": "350px",
+        "height": "500px"
+      }
+    ]
   }
 }
