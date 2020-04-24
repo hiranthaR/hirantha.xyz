@@ -1,4 +1,3 @@
-var isPausePrompt = true;
 var promptId = 0;
 
 $(document).ready(() => initialize());
@@ -42,6 +41,7 @@ async function hydraAttackAnim() {
 }
 
 async function initialize() {
+  // animate hydra attack once for a session
   if (sessionStorage.getItem("animated") !== "animated") {
     await hydraAttackAnim();
     sessionStorage.setItem("animated", "animated");
@@ -49,21 +49,29 @@ async function initialize() {
 
   var consoleDisplay = document.getElementById("console-display");
 
-  var consoleDisplayInnerHtml = `Welcome to the console of Hirantha's Laptop.<br>
-    Type 'lscmd' for list down all commands available to use.Type 'help' for help.
-    <br>
-    Date: <span id="date"></span> Time: <span id="time"></span>
-    <br>
-    <br>
-    example: <br>
-    user info
-    <div style="display: flex;" id="console-prompt-line-0">
-      <span class="console-prompt-uname">hirantha</span><span class="console-prompt-host">@debian</span>:~$
-      <input type="text" class="console-prompt" id="console-prompt">
-    </div>
-  </div>`;
+  fetch("./main.json")
+    .then((data) => data.text())
+    .then(function (json) {
+      var main = JSON.parse(json);
 
-  consoleDisplay.innerHTML = consoleDisplayInnerHtml;
+      var consoleDisplayInnerHtml = `Welcome to the console of ${main.first_name}'s Laptop.<br>
+      Type 'lscmd' for list down all commands available to use.Type 'help' for help.
+      <br>
+      Date: <span id="date"></span> Time: <span id="time"></span>
+      <br>
+      <br>
+      example: <br>
+      user info
+      <div style="display: flex;" id="console-prompt-line-0">
+        <span class="console-prompt-uname">${main.username}</span><span class="console-prompt-host">@${main.hostname}</span>:~$
+        <input type="text" class="console-prompt" id="console-prompt">
+      </div>
+    </div>`;
+
+      consoleDisplay.innerHTML = consoleDisplayInnerHtml;
+    });
+
+  // display click focus to input
   $("#console-display").on("click", function () {
     $("#console-prompt").focus();
   });
