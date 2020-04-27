@@ -49,7 +49,7 @@ async function initialize() {
 
   var consoleDisplay = document.getElementById("console-display");
 
-  fetch("./main.json")
+  await fetch("./main.json")
     .then((data) => data.text())
     .then(function (json) {
       var main = JSON.parse(json);
@@ -69,16 +69,17 @@ async function initialize() {
     </div>`;
 
       consoleDisplay.innerHTML = consoleDisplayInnerHtml;
+
+      // display click focus to input
+      $("#console-display").on("click", function () {
+        $("#console-prompt").focus();
+      });
+
+      addEventListenerForConsolePrompt();
+      setFocusToPrompt();
     });
 
-  // display click focus to input
-  $("#console-display").on("click", function () {
-    $("#console-prompt").focus();
-  });
-
-  addEventListenerForConsolePrompt();
-  setFocusToPrompt();
-
+  // set time and date
   var months = [
     "January",
     "February",
@@ -192,7 +193,7 @@ async function handleCommand(command) {
       clear();
       break;
     case "user info":
-      userInfo();
+      await userInfo();
       break;
     case "user contacts":
       userContacts();
@@ -221,28 +222,31 @@ function clear() {
 }
 
 function userInfo() {
-  var consoleDisplay = document.getElementById("console-display");
-  var userInfo = "";
+  return fetch("./main.json")
+    .then((data) => data.text())
+    .then(function (json) {
+      var main = JSON.parse(json);
+      var consoleDisplay = document.getElementById("console-display");
+      var userInfo = "";
 
-  userInfo += "Infomation about logged user</br></br>";
-  userInfo += `<table style="width:100%">`;
-  userInfo += createRow("Name", "Hirantha Rathnayake");
-  userInfo += createRow("Birthday", "1996-06-18");
-  userInfo += createRow(
-    "Address",
-    "Ginipenda, Kalugamuwa, Kurunegala, Sri Lanka"
-  );
-  userInfo += createRow(
-    "Mobile number",
-    '<a href="callto:0094712492630">+94712492630</a>'
-  );
-  userInfo += createRow(
-    "Email",
-    '<a href="mailto:mail@hirantha.xyz">mail@hirantha.xyz</a>'
-  );
-  userInfo += "</table></br>";
+      userInfo += "information about logged user</br></br>";
+      userInfo += `<table style="width:100%">`;
+      userInfo += createRow("Name", main.user.name);
+      userInfo += createRow("Age", main.user.age);
+      userInfo += createRow("Current Location", main.user.location);
+      userInfo += createRow("Home Town", main.user.homeTown);
+      userInfo += createRow(
+        "Mobile number",
+        `<a href="callto:${main.user.mobileHref}">${main.user.mobileText}</a>`
+      );
+      userInfo += createRow(
+        "Email",
+        '<a href="mailto:mail@hirantha.xyz">mail@hirantha.xyz</a>'
+      );
+      userInfo += "</table>";
 
-  consoleDisplay.innerHTML += userInfo;
+      consoleDisplay.innerHTML += userInfo;
+    });
 }
 
 function createRow(key, value) {
