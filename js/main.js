@@ -196,7 +196,7 @@ async function handleCommand(command) {
       await userInfo();
       break;
     case "user contacts":
-      userContacts();
+      await userContacts();
       break;
     case "help":
       help();
@@ -237,11 +237,11 @@ function userInfo() {
       userInfo += createRow("Home Town", main.user.homeTown);
       userInfo += createRow(
         "Mobile number",
-        `<a href="callto:${main.user.mobileHref}">${main.user.mobileText}</a>`
+        `<a href="callto:${main.contacts.mobileHref}">${main.contacts.mobileText}</a>`
       );
       userInfo += createRow(
         "Email",
-        '<a href="mailto:mail@hirantha.xyz">mail@hirantha.xyz</a>'
+        `<a href="mailto:${main.contacts.email}">${main.contacts.email}</a>`
       );
       userInfo += "</table>";
 
@@ -254,33 +254,36 @@ function createRow(key, value) {
 }
 
 function userContacts() {
-  var consoleDisplay = document.getElementById("console-display");
-  var userContacts = "";
+  return fetch("./main.json")
+    .then((data) => data.text())
+    .then(function (json) {
+      var main = JSON.parse(json);
+      var consoleDisplay = document.getElementById("console-display");
+      var userContacts = "";
 
-  userContacts += "Infomation about logged user's contact details</br></br>";
-  userContacts += `<table style="width:100%">`;
-  userContacts += createRow(
-    "Address",
-    `Ginipenda, Kalugamuwa, Kurunegala, Sri Lanka`
-  );
-  userContacts += createRow(
-    "Mobile number",
-    `<a href="callto:0094712492630">+94712492630</a>`
-  );
-  userContacts += createRow(
-    "Email",
-    `<a href="mailto:mail@hirantha.xyz">mail@hirantha.xyz</a>`
-  );
-  userContacts += createRow(
-    "Facebook",
-    ` <a href="https://www.facebook.com/sahanhirantha" target="blank">https://www.facebook.com/sahanhirantha (Hirantha)</a>`
-  );
-  userContacts += createRow(
-    "Github",
-    ` <a href="https://www.github.com/hiranthaR" target="blank">https://www.github.com/hiranthaR (hiranthaR)</a>`
-  );
-  userContacts += `</table></br>`;
-  consoleDisplay.innerHTML += userContacts;
+      userContacts +=
+        "Information about logged user's contact details</br></br>";
+      userContacts += `<table style="width:100%">`;
+      userContacts += createRow("Address", main.contacts.address);
+      userContacts += createRow(
+        "Mobile number",
+        `<a href="callto:${main.contacts.mobileHref}">${main.contacts.mobileText}</a>`
+      );
+      userContacts += createRow(
+        "Email",
+        `<a href="mailto:${main.contacts.email}">${main.contacts.email}</a>`
+      );
+      userContacts += createRow(
+        "Facebook",
+        ` <a href="https://www.facebook.com/sahanhirantha" target="blank">https://www.facebook.com/sahanhirantha (Hirantha)</a>`
+      );
+      userContacts += createRow(
+        "Github",
+        ` <a href="https://www.github.com/hiranthaR" target="blank">https://www.github.com/hiranthaR (hiranthaR)</a>`
+      );
+      userContacts += `</table></br>`;
+      consoleDisplay.innerHTML += userContacts;
+    });
 }
 
 function help() {

@@ -7,7 +7,10 @@
     "name": "Hirantha Rathnayake",
     "age": "24",
     "location": "Colombo, Sri Lanka",
-    "homeTown": "Kurunegala, Sri Lanka",
+    "homeTown": "Kurunegala, Sri Lanka"
+  },
+  "contacts": {
+    "address": "Ginipenda, Kalugamuwa, Kurunegala, Sri Lanka",
     "mobileHref": "0094712492630",
     "mobileText": "+9471-2492630",
     "email": "mail@hirantha.xyz"
