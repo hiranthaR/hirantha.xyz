@@ -19,6 +19,17 @@
   color: #ffffffaa;
 }
 
+.bio a {
+  color: #ffffffaa;
+  outline: none;
+}
+
+.bio a:hover {
+  color: #ffffffdd;
+  outline: none;
+  text-decoration: none;
+}
+
 .photo {
   border-radius: 3px;
   border: white 2px solid;
@@ -49,4 +60,34 @@
   text-align: center;
   font-size: 28px;
   margin-bottom: 10px;
+}
+
+.sub-title-bgw {
+  font-size: 28px;
+  color: #1175ab;
+  font-weight: 500;
+  font-family: "font-gg";
+  margin-top: 30px;
+}
+
+.sub-title2-bgw {
+  font-size: 23px;
+  color: #1175ab;
+  font-family: "font-gg";
+  margin-top: 10px;
+}
+
+.details {
+  color: #00000088;
+}
+
+.details a {
+  color: #00000088;
+  outline: none;
+}
+
+.details a:hover {
+  color: #000000aa;
+  outline: none;
+  text-decoration: none;
 }
