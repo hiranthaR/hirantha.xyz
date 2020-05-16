@@ -173,6 +173,7 @@ function showLscmd() {
   commands += createRow("show projects", "display user's projects");
   commands += createRow("open github", "open the user's github account");
   commands += createRow("open facebook", "open the user's facebook account");
+  commands += createRow("open resume", "open the user's resume");
   commands += createRow("lscmd", "display all commands available");
   commands += createRow("clear", "clear the console");
   commands += createRow("help", "display help");
@@ -209,6 +210,9 @@ async function handleCommand(command) {
       break;
     case "open facebook":
       await openFacebook();
+      break;
+    case "open resume":
+      await openResume();
       break;
     default:
       showErrorCmd(command);
@@ -331,6 +335,14 @@ async function openFacebook() {
   await sleep(200);
   window.open("https://www.facebook.com/sahanhirantha", "_blank").focus();
   consoleDisplay.innerHTML += "Facebook profile opened...</br></br>";
+}
+
+async function openResume() {
+  var consoleDisplay = document.getElementById("console-display");
+  consoleDisplay.innerHTML += "Opening resume...</br>";
+  await sleep(200);
+  window.open("./resume", "_blank").focus();
+  consoleDisplay.innerHTML += "resume opened...</br></br>";
 }
 
 function sleep(ms) {
