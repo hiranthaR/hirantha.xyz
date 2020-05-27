@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/main-v2.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-section">
+        <div class="login-card" onclick="login();">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <div class="name">Hirantha Rathnayake</div>
+        </div>
+        <div class="not-listed">not listed?</div>
+      </div>
+      <div class="status-bar">
+        <div></div>
+        <div class="time">Thu May 28 2:44 AM</div>
+        <div class="icons">
+          <i class="fa fa-universal-access" aria-hidden="true"></i>
+          <i class="fa fa-wifi" aria-hidden="true"></i>
+          <i class="fa fa-volume-up" aria-hidden="true"></i>
+          <i class="fa fa-battery-full" aria-hidden="true"> 100 %</i>
+        </div>
+      </div>
+    </div>
+    <div class="all-app-container"></div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+      const logged = sessionStorage.getItem("logged");
+      if (logged) {
+        hideLoginPanel();
+      }
+    });
+
+    function login() {
+      sessionStorage.setItem("logged", true);
+      hideLoginPanel();
+    }
+
+    function hideLoginPanel() {
+      var loginContainer = document.getElementsByClassName("login-container");
+      loginContainer[0].style.display = "none";
+
+      var allAppContainer = document.getElementsByClassName(
+        "all-app-container"
+      );
+      allAppContainer[0].style.display = "block";
+    }
+  </script>
+</html>

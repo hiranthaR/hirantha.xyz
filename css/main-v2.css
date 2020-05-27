@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.login-container {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(0deg, #292929, #2a2a2a);
+}
+
+.status-bar {
+  background: #00000044;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 10px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.status-bar .time {
+  color: white;
+  top: 0px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.status-bar .icons {
+  color: #ddd;
+}
+
+.status-bar .icons i {
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0 3px;
+}
+
+.status-bar .icons:hover {
+  color: white;
+  filter: brightness(3);
+}
+
+.login-section {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-section .login-card {
+  width: 340px;
+  height: 80px;
+  border-radius: 4px;
+  display: flex;
+  color: #ddd;
+  align-items: center;
+  padding: 5px;
+  transition: 0.2s linear;
+}
+
+.login-section .login-card:hover,
+.login-section .login-card:focus {
+  background-color: rgb(61, 61, 157);
+  color: #fff;
+}
+
+.login-section .login-card i {
+  border: 2px white solid;
+  padding: 1px 7px;
+  border-radius: 4px;
+  font-size: 60px;
+}
+
+.login-section .login-card .name {
+  font-weight: bold;
+  font-size: 17px;
+  margin: 0px 10px;
+}
+
+.login-section .not-listed {
+  color: #ddd;
+  width: 340px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.login-section .not-listed:hover {
+  color: #fff;
+}
+
+.all-app-container {
+  background: tomato;
+  position: relative;
+  min-height: 100vh;
+  display: none;
+}
