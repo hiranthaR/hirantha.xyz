@@ -5,9 +5,16 @@
   font-family: "Courier New", Courier, monospace;
 }
 
-.login-container {
+body {
+  height: 100vh;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  min-height: 100vh;
+  height: 100%;
   background: linear-gradient(0deg, #292929, #2a2a2a);
 }
 
@@ -23,9 +30,11 @@
 }
 
 .status-bar .time {
+  width: 200px;
+  position: absolute;
   color: white;
+  left: calc(50% - 100px);
   top: 0px;
-  text-align: center;
   font-size: 17px;
 }
 
@@ -99,8 +108,59 @@
 }
 
 .all-app-container {
-  background: tomato;
   position: relative;
-  min-height: 100vh;
+  height: 100%;
   display: none;
+}
+
+.all-app-container .background {
+  background: url("../joker.jpg");
+  filter: blur(8px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  top: 0;
+}
+
+.all-app-container .search-box {
+  width: 300px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 20px;
+  left: calc(50% - 150px);
+}
+
+.all-app-container .tics {
+  display: inline-flex;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+}
+
+.all-app-container .tics .tic {
+  min-width: 14px;
+  min-height: 14px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+.all-app-container .apps {
+  position: absolute;
+  display: flex;
+  background-color: lightgreen;
+  top: 100px;
+  flex-wrap: wrap;
+  width: 70%;
+  justify-content: space-evenly;
+  height: 80%;
+  left: 15%;
+}
+
+.all-app-container .apps .app {
+  background-color: lightpink;
+  min-width: 200px;
+  height: 200px;
+  border: lightseagreen 2px solid;
 }
