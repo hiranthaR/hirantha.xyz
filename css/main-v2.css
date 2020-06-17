@@ -149,18 +149,57 @@ body {
 .all-app-container .apps {
   position: absolute;
   display: flex;
-  background-color: lightgreen;
   top: 100px;
   flex-wrap: wrap;
   width: 70%;
-  justify-content: space-evenly;
   height: 80%;
   left: 15%;
 }
 
-.all-app-container .apps .app {
-  background-color: lightpink;
-  min-width: 200px;
-  height: 200px;
-  border: lightseagreen 2px solid;
+.all-app-container .apps .app-container {
+  height: 130px;
+  width: 50%;
+}
+
+.all-app-container .apps .app-container .app {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border-radius: 3px;
+  transition: 0.2s;
+}
+
+.all-app-container .apps .app-container .app:hover {
+  background-color: #ffffff10;
+}
+
+.all-app-container .apps .app-container .app .app-icon {
+  width: 90px;
+  height: 90px;
+}
+
+.all-app-container .apps .app-container .app .title {
+  color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  .all-app-container .apps .app-container {
+    height: 130px;
+    width: 33.3%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .all-app-container .apps .app-container {
+    height: 130px;
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .all-app-container .apps .app-container {
+    height: 130px;
+    width: 16.6%;
+  }
 }
