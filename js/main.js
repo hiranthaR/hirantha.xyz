@@ -1,4 +1,5 @@
 function initFunctions() {
+  updateClock();
   setInterval(updateClock, 1000);
 }
 
@@ -31,5 +32,23 @@ function updateClock() {
   document.getElementById('time').innerText = date;
 }
 
-updateClock();
-initFunctions();
+document.addEventListener('DOMContentLoaded', function (event) {
+  initFunctions();
+  const logged = sessionStorage.getItem('logged');
+  if (logged) {
+    // hideLoginPanel();
+  }
+});
+
+function login() {
+  sessionStorage.setItem('logged', true);
+  hideLoginPanel();
+}
+
+function hideLoginPanel() {
+  var loginContainer = document.getElementsByClassName('login-section');
+  loginContainer[0].style.display = 'none';
+
+  var allAppContainer = document.getElementsByClassName('apps-section');
+  allAppContainer[0].style.display = 'block';
+}
