@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'poppl';
+  src: url('../fonts/Poppl-Laudatio\ Light\ Condensed.ttf');
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -105,6 +110,29 @@
 
 .login-section .not-listed:hover {
   color: #fff;
+}
+
+.login-section .debian-logo {
+  position: absolute;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.login-section .debian-logo .text {
+  margin-left: 10px;
+  font-size: 40px;
+  color: white;
+  font-family: 'poppl';
+}
+
+.login-section .debian-logo .version {
+  position: absolute;
+  right: -20px;
+  top: 10px;
+  font-size: 20px;
+  color: rgb(127, 131, 169);
+  font-family: 'poppl';
 }
 
 .apps-section {
