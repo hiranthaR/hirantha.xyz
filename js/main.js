@@ -24,7 +24,9 @@ function updateClock() {
   var day = days[now.getDay()];
   var month = months[now.getMonth()];
   var hour = now.getHours() > 12 ? now.getHours() - 12 : now.getHours();
-  var minute = now.getMinutes();
+  hour = hour == 0 ? 12 : hour;
+  var minute =
+    now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
   var ampm = now.getHours() < 12 ? 'AM' : 'PM';
 
   var date = `${day} ${month} ${now.getDate()} ${hour}:${minute} ${ampm}`;
