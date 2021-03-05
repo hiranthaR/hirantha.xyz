@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   initFunctions();
   const logged = sessionStorage.getItem('logged');
   if (logged) {
-    // hideLoginPanel();
+    hideLoginPanel();
   }
 });
 
@@ -52,5 +52,5 @@ function hideLoginPanel() {
   loginContainer[0].style.display = 'none';
 
   var allAppContainer = document.getElementsByClassName('apps-section');
-  allAppContainer[0].style.display = 'block';
+  allAppContainer[0].style.display = 'flex';
 }
