@@ -136,7 +136,7 @@
 }
 
 .apps-section {
-  display: flex;
+  display: none;
   flex-direction: column;
   height: 100%;
 }
