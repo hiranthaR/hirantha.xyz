@@ -54,3 +54,27 @@ function hideLoginPanel() {
   var allAppContainer = document.getElementsByClassName('apps-section');
   allAppContainer[0].style.display = 'flex';
 }
+
+async function showProfile() {
+  showDisplay();
+  const contentPanel = document.getElementById('window-content');
+  const profileContent = await fetch('../contents/profile.html');
+  console.log(profileContent);
+  contentPanel.innerHTML = await profileContent.text();
+}
+
+function showDisplay() {
+  var appsContainer = document.getElementsByClassName('apps-section');
+  appsContainer[0].style.display = 'none';
+
+  var displayContainer = document.getElementsByClassName('display');
+  displayContainer[0].style.display = 'flex';
+}
+
+function closeDisplay() {
+  var appsContainer = document.getElementsByClassName('apps-section');
+  appsContainer[0].style.display = 'flex';
+
+  var displayContainer = document.getElementsByClassName('display');
+  displayContainer[0].style.display = 'none';
+}

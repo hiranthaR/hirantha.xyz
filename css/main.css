@@ -236,6 +236,46 @@
   background-color: #fff;
   height: 100%;
   display: none;
+  flex-direction: column;
+}
+
+.display .title-bar {
+  background: linear-gradient(0deg, #171717, #303030);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2px 10px;
+  align-items: center;
+}
+
+.display .title-bar .tail-icons i {
+  color: #ddd;
+  cursor: pointer;
+  padding: 2px 5px;
+  transition: all 0.3s;
+}
+
+.display .title-bar .tail-icons i:hover {
+  color: #fff;
+  -webkit-filter: drop-shadow(0px 0px 3px #fff);
+  filter: drop-shadow(0px 0px 3px #fff);
+}
+
+.display .title-bar .title {
+  color: #ddd;
+  font-weight: 600;
+}
+
+.display .content {
+  background-color: #2a2a2a;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.display .content .profile {
+  background-color: aqua;
+  width: 100%;
 }
 
 .sc-tab {
