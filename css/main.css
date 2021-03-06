@@ -219,7 +219,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
   justify-content: center;
+  transition: 0.3s;
+  padding: 30px 10px;
+  border-radius: 20px;
+}
+
+.apps-section .apps .app:hover {
+  scale: 1.1;
+  background-color: #ffffff20;
 }
 
 .apps-section .apps .app .icon img {
@@ -274,8 +283,12 @@
 }
 
 .display .content .profile {
-  background-color: aqua;
   width: 100%;
+  display: flex;
+}
+
+.display .content .profile .card {
+  background-color: #fff;
 }
 
 .sc-tab {
