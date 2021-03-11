@@ -32,11 +32,11 @@
 }
 
 .status-bar .time {
-  width: 200px;
+  width: 250px;
   text-align: center;
   font-size: 17px;
   position: absolute;
-  left: calc(50% - 100px);
+  left: calc(50% - 125px);
   cursor: pointer;
   transition: 0.2s linear;
 }
