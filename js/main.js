@@ -56,10 +56,13 @@ function hideLoginPanel() {
 
   var logOutTab = document.getElementById('log-out');
   logOutTab.style.display = 'flex';
+
+  showProfile();
 }
 
 function logOut() {
   sessionStorage.setItem('logged', true);
+  closeDisplay();
   showLoginPanel();
 }
 
@@ -78,7 +81,6 @@ async function showProfile() {
   showDisplay();
   const contentPanel = document.getElementById('window-content');
   const profileContent = await fetch('../contents/profile.html');
-  console.log(profileContent);
   contentPanel.innerHTML = await profileContent.text();
 }
 

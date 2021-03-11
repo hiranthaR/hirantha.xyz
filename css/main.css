@@ -3,6 +3,16 @@
   src: url('../fonts/Poppl-Laudatio\ Light\ Condensed.ttf');
 }
 
+@font-face {
+  font-family: 'hey-fun';
+  src: url('../fonts/Hey\ Fun.ttf');
+}
+
+@font-face {
+  font-family: 'hey-august';
+  src: url('../fonts/Hey\ August.ttf');
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -422,12 +432,100 @@
   display: flex;
   flex-wrap: wrap;
   padding: 50px 100px;
-  background-color: aqua;
   justify-content: space-between;
 }
 
 .display .content .profile .card {
-  background-color: #fff;
+  background-color: #fcfcfc;
+  padding: 20px;
+  margin: 10px;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  font-family: 'hey-fun';
+  box-shadow: 0px 0px 10px #ddd, 3px 3px 15px #aaa;
+}
+
+.display .content .profile .primary {
+  width: 35%;
+}
+
+.display .content .profile .primary .photo {
+  width: 200px;
+  border-radius: 100%;
+}
+
+.display .content .profile .primary .details {
+  margin: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display .content .profile .primary .details .name {
+  font-size: 60px;
+  font-family: 'hey-august';
+}
+
+.display .content .profile .primary .details .title {
+  color: #444;
+  font-size: 26px;
+  font-family: 'hey-fun';
+}
+
+.display .content .profile .primary .details .contact {
+  font-family: 'hey-fun';
+  text-decoration: none;
+  color: #444;
+  margin: 2px 0px;
+  transition: 0.2s;
+}
+
+.display .content .profile .primary .details .contact:hover {
+  color: #000;
+  scale: 1.05;
+}
+
+.display .content .profile .primary .details .company {
+  color: #444;
+  font-size: 19px;
+  font-family: 'hey-fun';
+  margin-bottom: 40px;
+}
+
+.display .content .profile .primary .details .social {
+  display: flex;
+}
+
+.display .content .profile .primary .details .social a img {
+  width: 50px;
+  height: 50px;
+  -webkit-filter: drop-shadow(1px 1px 3px #000);
+  filter: drop-shadow(1px 1px 3px #000);
+}
+
+.display .content .profile .primary .details .social a {
+  margin: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.display .content .profile .primary .details .social a:hover {
+  scale: 1.1;
+}
+
+.display .content .profile .education {
+  width: 60%;
+}
+
+.display .content .profile .interest {
+  width: 30%;
+}
+
+.display .content .profile .skills {
+  width: 30%;
 }
 
 .sc-tab {
@@ -436,6 +534,31 @@
 
 .sc-phone {
   display: none;
+}
+
+/* tab */
+@media screen and (max-width: 1024px) {
+  .display .content .profile .primary {
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .display .content .profile .education {
+    width: 100%;
+  }
+
+  .display .content .profile .interest {
+    width: 100%;
+  }
+
+  .display .content .profile .experience {
+    width: 100%;
+  }
+
+  .display .content .profile .skills {
+    width: 100%;
+  }
 }
 
 /* tab */
