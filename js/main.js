@@ -56,8 +56,6 @@ function hideLoginPanel() {
 
   var logOutTab = document.getElementById('log-out');
   logOutTab.style.display = 'flex';
-
-  showProfile();
 }
 
 function logOut() {
