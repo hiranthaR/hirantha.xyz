@@ -21,6 +21,63 @@
             <i class="fa fa-wifi" aria-hidden="true"></i>
             <i class="fa fa-volume-up" aria-hidden="true"></i>
             <i class="fa fa-battery-full" aria-hidden="true"> 100 %</i>
+            <div class="controls">
+              <div class="ranges">
+                <div class="range">
+                  <i class="fa fa-volume-up" aria-hidden="true"></i>
+                  <input type="range" min="0" max="100" value="60" steps="1" />
+                </div>
+
+                <div class="range">
+                  <i class="fa fa-sun-o" aria-hidden="true"></i>
+                  <input type="range" min="0" max="100" value="40" steps="1" />
+                </div>
+
+                <div class="range">
+                  <i class="fa fa-microphone" aria-hidden="true"></i>
+                  <input type="range" min="0" max="100" value="75" steps="1" />
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="settings">
+                <div class="setting">
+                  <i class="fa fa-desktop" aria-hidden="true"></i>
+                  <span>Ethernet Connected</span>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+
+                <div class="setting">
+                  <i class="fa fa-wifi" aria-hidden="true"></i>
+                  <span>Phoenix</span>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+
+                <div class="setting">
+                  <i class="fa fa-bluetooth" aria-hidden="true"></i>
+                  <span>On</span>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+
+                <div class="setting">
+                  <i class="fa fa-battery-full" aria-hidden="true"></i>
+                  <span>Fully Charged</span>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+                <div class="divider"></div>
+                <div class="setting">
+                  <i class="fa fa-cog" aria-hidden="true"></i>
+                  <span>Settings</span>
+                </div>
+                <div class="setting">
+                  <i class="fa fa-lock" aria-hidden="true"></i>
+                  <span>Lock</span>
+                </div>
+                <div class="setting" id="log-out" onclick="logOut();">
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  <span>Log Out</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="login-section">

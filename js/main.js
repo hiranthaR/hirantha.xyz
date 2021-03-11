@@ -53,6 +53,25 @@ function hideLoginPanel() {
 
   var allAppContainer = document.getElementsByClassName('apps-section');
   allAppContainer[0].style.display = 'flex';
+
+  var logOutTab = document.getElementById('log-out');
+  logOutTab.style.display = 'flex';
+}
+
+function logOut() {
+  sessionStorage.setItem('logged', true);
+  showLoginPanel();
+}
+
+function showLoginPanel() {
+  var loginContainer = document.getElementsByClassName('login-section');
+  loginContainer[0].style.display = 'flex';
+
+  var allAppContainer = document.getElementsByClassName('apps-section');
+  allAppContainer[0].style.display = 'none';
+
+  var logOutTab = document.getElementById('log-out');
+  logOutTab.style.display = 'none';
 }
 
 async function showProfile() {

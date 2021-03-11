@@ -55,9 +55,143 @@
   margin: 0 3px;
 }
 
+.status-bar .icons .controls {
+  background-color: #fff;
+  position: absolute;
+  width: 300px;
+  right: 0;
+  z-index: 2;
+  visibility: hidden;
+  margin: 10px 20px;
+  border-radius: 5px;
+  transition: 0.2s;
+  opacity: 0;
+  transform: translateY(-3%);
+  padding: 20px 0px;
+  cursor: default;
+}
+
+.status-bar .icons .controls::after {
+  content: '';
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: -1;
+  right: 60px;
+  top: -5px;
+  transform: rotate(45deg);
+}
+
+.status-bar .icons:hover .controls {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0%);
+}
+
 .status-bar .icons:hover {
   color: white;
-  filter: brightness(3);
+}
+
+.status-bar .icons .controls .ranges .range {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 20px;
+  margin: 5px 0px;
+  cursor: pointer;
+}
+
+.status-bar .icons .controls .ranges .range:hover {
+  background-color: #ddd;
+}
+
+.status-bar .icons .controls .ranges .range i {
+  color: #444;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  font-size: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-bar .icons .controls .divider {
+  background-color: #ddd;
+  height: 1px;
+  width: 50%;
+  transform: translateX(50%);
+}
+
+.status-bar .icons .controls .ranges .range input {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  border: #ccc solid 1px;
+  z-index: 2222;
+  margin-left: 10px;
+}
+.status-bar .icons .controls .ranges .range input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #666;
+  cursor: pointer;
+}
+.status-bar .icons .controls .ranges .range input::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #666;
+  cursor: pointer;
+}
+.status-bar .icons .controls .ranges .range input::-moz-range-progress {
+  background: #666;
+}
+
+.status-bar .icons .controls .settings {
+  margin-top: 10px;
+}
+
+.status-bar .icons .controls .settings .setting {
+  display: flex;
+  color: #444;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 20px;
+  margin: 5px 0px;
+  cursor: pointer;
+}
+
+.status-bar .icons .controls .settings .setting:hover {
+  background-color: #ddd;
+}
+
+.status-bar .icons .controls .settings #log-out {
+  display: none;
+}
+
+.status-bar .icons .controls .settings .setting span {
+  font-size: 17px;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.status-bar .icons .controls .settings .setting i {
+  width: 20px;
+  font-size: 15px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-section {
@@ -285,6 +419,10 @@
 .display .content .profile {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  padding: 50px 100px;
+  background-color: aqua;
+  justify-content: space-between;
 }
 
 .display .content .profile .card {
