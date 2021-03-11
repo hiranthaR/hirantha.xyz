@@ -355,7 +355,7 @@
   align-items: center;
   cursor: pointer;
   justify-content: center;
-  transition: 0.3s;
+  transition: 0.2s;
   padding: 30px 10px;
   border-radius: 20px;
 }
@@ -373,6 +373,7 @@
 .apps-section .apps .app .name {
   color: #fff;
   margin-top: 10px;
+  text-align: center;
 }
 
 .display {
