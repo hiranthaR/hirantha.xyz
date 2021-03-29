@@ -1,37 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Hirantha's Laptop</title>
+  </head>
+  <body>
+    <div class="sc-monitor">
+      <div class="main-container">
+        <div class="status-bar">
+          <div></div>
+          <div class="time" id="time">Thu May 28 2:44 AM</div>
+          <div class="icons">
+            <i class="fa fa-universal-access" aria-hidden="true"></i>
+            <i class="fa fa-wifi" aria-hidden="true"></i>
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <i class="fa fa-battery-full" aria-hidden="true"> 100 %</i>
+            <div class="controls">
+              <div class="ranges">
+                <div class="range">
+                  <i class="fa fa-volume-up" aria-hidden="true"></i>
+                  <input type="range" min="0" max="100" value="60" steps="1" />
+                </div>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Personal web site of Hirantha Rathnayake">
-  <meta name="image" content="./resume/assets/images/photo3.png" />
-  <meta name="keywords" content="hirantha,Hirantha,Rathnayake,hirantha rathnayake,portfolio">
-  <meta name="author" content="Hirantha Rathnayake">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-  <link rel="shortcut icon" type="image/png" href="./icon.png"/>
+                <div class="range">
+                  <i class="fa fa-sun-o" aria-hidden="true"></i>
+                  <input type="range" min="0" max="100" value="40" steps="1" />
+                </div>
 
-  <link rel="stylesheet" href="css/main.css" />
-  
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/main.js"></script>
-  <title>Hirantha Rathnayake</title>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157296285-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+                <div class="range">
+                  <i class="fa fa-microphone" aria-hidden="true"></i>
+                  <input type="range" min="0" max="100" value="75" steps="1" />
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="settings">
+                <div class="setting">
+                  <i class="fa fa-desktop" aria-hidden="true"></i>
+                  <span>Ethernet Connected</span>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
 
-    gtag('config', 'UA-157296285-1');
-  </script>
+                <div class="setting">
+                  <i class="fa fa-wifi" aria-hidden="true"></i>
+                  <span>Phoenix</span>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
 
-</head>
+                <div class="setting">
+                  <i class="fa fa-bluetooth" aria-hidden="true"></i>
+                  <span>On</span>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
 
-<body>
-  <div class="console-display" id="console-display">
+                <div class="setting">
+                  <i class="fa fa-battery-full" aria-hidden="true"></i>
+                  <span>Fully Charged</span>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </div>
+                <div class="divider"></div>
+                <div class="setting">
+                  <i class="fa fa-cog" aria-hidden="true"></i>
+                  <span>Settings</span>
+                </div>
+                <div class="setting">
+                  <i class="fa fa-lock" aria-hidden="true"></i>
+                  <span>Lock</span>
+                </div>
+                <div class="setting" id="log-out" onclick="logOut();">
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  <span>Log Out</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="login-section">
+          <div class="login-card" onclick="login();">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <div class="name">Hirantha Rathnayake</div>
+          </div>
+          <div class="not-listed">not listed?</div>
+          <div class="debian-logo">
+            <img
+              src="images/debian-logo.png"
+              alt=""
+              height="80px"
+              class="logo"
+            />
+            <div class="text">Debian</div>
+            <div class="version">10</div>
+          </div>
+        </div>
+        <div class="apps-section">
+          <div class="background"></div>
+          <div class="search-bar">
+            <input type="text" placeholder="Type to search" />
+          </div>
+          <div class="tics">
+            <div class="tic active"></div>
+            <div class="tic"></div>
+            <div class="tic"></div>
+          </div>
+          <div class="apps">
+            <div class="app" onclick="showProfile();">
+              <div class="icon">
+                <img
+                  src="icons/profile.png"
+                  alt=""
+                  height="90px"
+                  width="90px"
+                />
+              </div>
+              <div class="name">Profile</div>
+            </div>
 
-</body>
+            <div class="app">
+              <div class="icon">
+                <img src="icons/email.png" alt="" height="90px" width="90px" />
+              </div>
+              <div class="name">Mail</div>
+            </div>
 
+            <div class="app">
+              <div class="icon">
+                <img src="icons/phone.png" alt="" height="90px" width="90px" />
+              </div>
+              <div class="name">Phone</div>
+            </div>
+
+            <div class="app">
+              <div class="icon">
+                <img src="icons/cv.png" alt="" height="90px" width="90px" />
+              </div>
+              <div class="name">Curriculum <br />Vitae</div>
+            </div>
+
+            <div class="app">
+              <div class="icon">
+                <img
+                  src="icons/project.png"
+                  alt=""
+                  height="90px"
+                  width="90px"
+                />
+              </div>
+              <div class="name">Projects</div>
+            </div>
+
+            <div class="app">
+              <div class="icon">
+                <img
+                  src="icons/facebook.webp"
+                  alt=""
+                  height="90px"
+                  width="90px"
+                />
+              </div>
+              <div class="name">Facebook</div>
+            </div>
+
+            <div class="app">
+              <div class="icon">
+                <img
+                  src="icons/github.webp"
+                  alt=""
+                  height="90px"
+                  width="90px"
+                />
+              </div>
+              <div class="name">Github</div>
+            </div>
+
+            <div class="app">
+              <div class="icon">
+                <img
+                  src="icons/twitter.png"
+                  alt=""
+                  height="90px"
+                  width="90px"
+                />
+              </div>
+              <div class="name">Twitter</div>
+            </div>
+
+            <div class="app">
+              <div class="icon">
+                <img
+                  src="icons/linkedin.png"
+                  alt=""
+                  height="90px"
+                  width="90px"
+                />
+              </div>
+              <div class="name">Linkedin</div>
+            </div>
+
+            <div class="app">
+              <div class="icon">
+                <img src="icons/blog.png" alt="" height="90px" width="90px" />
+              </div>
+              <div class="name">Blog</div>
+            </div>
+          </div>
+        </div>
+        <div class="display">
+          <div class="title-bar">
+            <div></div>
+            <div class="title">Profile</div>
+            <div class="tail-icons">
+              <i class="fa fa-square-o" aria-hidden="true"></i>
+              <i
+                class="fa fa-window-minimize"
+                aria-hidden="true"
+                onclick="closeDisplay();"
+              >
+              </i>
+              <i
+                class="fa fa-times"
+                aria-hidden="true"
+                onclick="closeDisplay();"
+              ></i>
+            </div>
+          </div>
+          <div class="content" id="window-content"></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-phone">phone</div>
+    <div class="sc-tab">tab</div>
+
+    <script src="js/main.js"></script>
+  </body>
 </html>

@@ -1,62 +1,644 @@
-.console-display {
-  width: auto;
-  height: 100%;
-  color: white;
-  background-color: #2b2b2b;
-  padding: 7px;
-  font-family: "Courier New";
-  font-size: 16px;
-  border: black 1px solid;
-  overflow-y: auto;
+@font-face {
+  font-family: 'poppl';
+  src: url('../fonts/Poppl-Laudatio\ Light\ Condensed.ttf');
 }
 
-.under-constructions {
-  color: white;
-  background-color: #888;
-  margin: 10px;
-  padding: 10px;
-  text-align: center;
+@font-face {
+  font-family: 'hey-fun';
+  src: url('../fonts/Hey\ Fun.ttf');
+}
+
+@font-face {
+  font-family: 'hey-august';
+  src: url('../fonts/Hey\ August.ttf');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 body {
-  background-color: #333;
+  background-color: #2a2a2a;
+}
+
+.main-container {
+  background: linear-gradient(0deg, #292929, #2a2a2a);
+  width: 100%;
   height: 100%;
-  padding: 0;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-html {
-  height: 98%;
-  padding: 0;
-  margin: 0;
+.sc-monitor {
+  display: block;
+  height: 100vh;
 }
 
-.console-prompt {
-  background-color: transparent;
-  border: none;
+.status-bar {
+  background: #00000044;
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 10px;
+  color: #ddd;
+}
+
+.status-bar .time {
+  width: 250px;
+  text-align: center;
+  font-size: 17px;
+  position: absolute;
+  left: calc(50% - 125px);
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.status-bar .time:hover {
   color: white;
-  font-family: "Courier New";
+  filter: brightness(3);
+}
+.status-bar .icons {
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.status-bar .icons i {
+  font-size: 14px;
+  margin: 0 3px;
+}
+
+.status-bar .icons .controls {
+  background-color: #fff;
+  position: absolute;
+  width: 300px;
+  right: 0;
+  z-index: 2;
+  visibility: hidden;
+  margin: 10px 20px;
+  border-radius: 5px;
+  transition: 0.2s;
+  opacity: 0;
+  transform: translateY(-3%);
+  padding: 20px 0px;
+  cursor: default;
+}
+
+.status-bar .icons .controls::after {
+  content: '';
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: -1;
+  right: 60px;
+  top: -5px;
+  transform: rotate(45deg);
+}
+
+.status-bar .icons:hover .controls {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.status-bar .icons:hover {
+  color: white;
+}
+
+.status-bar .icons .controls .ranges .range {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 20px;
+  margin: 5px 0px;
+  cursor: pointer;
+}
+
+.status-bar .icons .controls .ranges .range:hover {
+  background-color: #ddd;
+}
+
+.status-bar .icons .controls .ranges .range i {
+  color: #444;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  font-size: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-bar .icons .controls .divider {
+  background-color: #ddd;
+  height: 1px;
+  width: 50%;
+  transform: translateX(50%);
+}
+
+.status-bar .icons .controls .ranges .range input {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  border: #ccc solid 1px;
+  z-index: 2222;
+  margin-left: 10px;
+}
+.status-bar .icons .controls .ranges .range input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #666;
+  cursor: pointer;
+}
+.status-bar .icons .controls .ranges .range input::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #666;
+  cursor: pointer;
+}
+.status-bar .icons .controls .ranges .range input::-moz-range-progress {
+  background: #666;
+}
+
+.status-bar .icons .controls .settings {
+  margin-top: 10px;
+}
+
+.status-bar .icons .controls .settings .setting {
+  display: flex;
+  color: #444;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 20px;
+  margin: 5px 0px;
+  cursor: pointer;
+}
+
+.status-bar .icons .controls .settings .setting:hover {
+  background-color: #ddd;
+}
+
+.status-bar .icons .controls .settings #log-out {
+  display: none;
+}
+
+.status-bar .icons .controls .settings .setting span {
+  font-size: 17px;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.status-bar .icons .controls .settings .setting i {
+  width: 20px;
+  font-size: 15px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-section {
+  background-color: #2a2a2a;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-section .login-card {
+  width: 340px;
+  height: 80px;
+  border-radius: 4px;
+  display: flex;
+  color: #ddd;
+  align-items: center;
+  padding: 5px;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+
+.login-section .login-card:hover,
+.login-section .login-card:focus {
+  background-color: rgb(61, 61, 157);
+  color: #fff;
+}
+
+.login-section .login-card i {
+  border: 2px white solid;
+  padding: 1px 7px;
+  border-radius: 4px;
+  font-size: 60px;
+}
+
+.login-section .login-card .name {
+  font-weight: bold;
+  font-size: 17px;
+  margin: 0px 10px;
+}
+
+.login-section .not-listed {
+  color: #ddd;
+  width: 340px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.login-section .not-listed:hover {
+  color: #fff;
+}
+
+.login-section .debian-logo {
+  position: absolute;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.login-section .debian-logo .text {
+  margin-left: 10px;
+  font-size: 40px;
+  color: white;
+  font-family: 'poppl';
+}
+
+.login-section .debian-logo .version {
+  position: absolute;
+  right: -20px;
+  top: 10px;
+  font-size: 20px;
+  color: rgb(127, 131, 169);
+  font-family: 'poppl';
+}
+
+.apps-section {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+}
+
+.apps-section .search-bar {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.apps-section .search-bar input {
+  border-radius: 40px;
+  height: 30px;
+  padding-left: 35px;
+  padding-right: 20px;
+  width: 300px;
+  background-image: url(../icons/magnifying-glass.png);
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+  background-position: 10px 3px;
+}
+
+.apps-section .search-bar input:focus {
+  outline: none;
+}
+
+.apps-section .background {
+  background: url('../images/joker.jpg');
+  filter: blur(8px);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  top: 0;
+}
+
+.apps-section .tics {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.apps-section .tics .tic {
+  height: 8px;
+  width: 8px;
+  background-color: #aaa;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 1px #fff;
+  cursor: pointer;
+}
+
+.apps-section .tics .active {
+  height: 12px;
+  width: 12px;
+  background-color: #fff;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.apps-section .apps {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  top: 120px;
+  transform: translateX(-50%);
+}
+
+.apps-section .apps .app {
+  margin: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  transition: 0.2s;
+  padding: 30px 10px;
+  border-radius: 20px;
+}
+
+.apps-section .apps .app:hover {
+  scale: 1.1;
+  background-color: #ffffff20;
+}
+
+.apps-section .apps .app .icon img {
+  -webkit-filter: drop-shadow(0px 0px 3px #fff);
+  filter: drop-shadow(0px 0px 3px #fff);
+}
+
+.apps-section .apps .app .name {
+  color: #fff;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.display {
+  background-color: #fff;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+}
+
+.display .title-bar {
+  background: linear-gradient(0deg, #171717, #303030);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2px 10px;
+  align-items: center;
+}
+
+.display .title-bar .tail-icons i {
+  color: #ddd;
+  cursor: pointer;
+  padding: 2px 5px;
+  transition: all 0.3s;
+}
+
+.display .title-bar .tail-icons i:hover {
+  color: #fff;
+  -webkit-filter: drop-shadow(0px 0px 3px #fff);
+  filter: drop-shadow(0px 0px 3px #fff);
+}
+
+.display .title-bar .title {
+  color: #ddd;
+  font-weight: 600;
+}
+
+.display .content {
+  background-color: #2a2a2a;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.display .content .profile {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 100px;
+  justify-content: space-between;
+}
+
+.display .content .profile .card {
+  background-color: #fcfcfc;
+  padding: 50px 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  font-family: 'hey-fun';
+  box-shadow: 0px 0px 10px #ddd, 3px 3px 15px #aaa;
+}
+
+.display .content .profile .primary {
+  align-items: center;
+}
+
+.display .content .profile .primary .photo {
+  width: 200px;
+  border-radius: 100%;
+}
+
+.display .content .profile .primary .details {
+  margin: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display .content .profile .primary .details .name {
+  font-size: 60px;
+  font-family: 'hey-august';
+}
+
+.display .content .profile .primary .details .title {
+  color: #444;
+  font-size: 26px;
+  font-family: 'hey-fun';
+}
+
+.display .content .profile .primary .details .contact {
+  font-family: 'hey-fun';
+  text-decoration: none;
+  color: #444;
+  margin: 2px 0px;
+  transition: 0.2s;
+}
+
+.display .content .profile .primary .details .contact:hover {
+  color: #000;
+  scale: 1.05;
+}
+
+.display .content .profile .primary .details .company {
+  color: #444;
+  font-size: 19px;
+  font-family: 'hey-fun';
+  margin-bottom: 40px;
+}
+
+.display .content .profile .primary .details .social {
+  display: flex;
+}
+
+.display .content .profile .primary .details .social a img {
+  width: 50px;
+  height: 50px;
+  -webkit-filter: drop-shadow(1px 1px 3px #000);
+  filter: drop-shadow(1px 1px 3px #000);
+}
+
+.display .content .profile .primary .details .social a {
+  margin: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.display .content .profile .primary .details .social a:hover {
+  scale: 1.1;
+}
+
+.display .content .profile .education {
+}
+
+.display .content .profile .education > .title {
+  font-size: 50px;
+  font-family: 'hey-august';
+  text-align: center;
+}
+
+.display .content .profile .school {
+  margin: 5px 50px;
+}
+
+.display .content .profile .school .title {
+  font-size: 20px;
+  font-family: 'hey-fun';
+}
+
+.display .content .profile .school .degree {
   font-size: 16px;
-  padding: 0 0 0 10px;
-  margin: 0;
-  width: max-content;
-  flex-grow: 1;
-  outline: none;
+  font-family: 'hey-fun';
+  color: #666;
 }
 
-.console-prompt:focus {
-  outline: none;
+.display .content .profile .school .year {
+  font-size: 16px;
+  font-family: 'hey-fun';
+  color: #666;
 }
 
-.console-prompt-uname {
-  color: greenyellow;
-  font-weight: 600;
-}
-.console-prompt-host {
-  color: #5497f0;
-  font-weight: 600;
+.display .content .profile .interest {
 }
 
-a {
-  color: white;
+.display .content .profile .skills {
+}
+.display .content .profile .experiences {
+}
+.display .content .profile .experiences .experience {
+  margin: 5px 50px;
+}
+
+.display .content .profile .experiences > .title {
+  font-size: 50px;
+  font-family: 'hey-august';
+  text-align: center;
+}
+
+.display .content .profile .experiences .experience .title {
+  font-size: 20px;
+  font-family: 'hey-fun';
+}
+
+.display .content .profile .experiences .experience .position,
+.year,
+.company,
+.additional {
+  font-size: 16px;
+  font-family: 'hey-fun';
+  color: #666;
+}
+
+.sc-tab {
+  display: none;
+}
+
+.sc-phone {
+  display: none;
+}
+
+/* tab */
+@media screen and (max-width: 1024px) {
+  .display .content .profile .primary {
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: row;
+  }
+
+  .display .content .profile .education {
+    width: 100%;
+  }
+
+  .display .content .profile .interest {
+    width: 100%;
+  }
+
+  .display .content .profile .experiences {
+    width: 100%;
+  }
+
+  .display .content .profile .skills {
+    width: 100%;
+  }
+}
+
+/* tab */
+@media screen and (max-width: 768px) {
+  .sc-monitor {
+    display: none;
+  }
+
+  .sc-tab {
+    display: block;
+  }
+
+  .sc-phone {
+    display: none;
+  }
+}
+
+/* phone */
+@media screen and (max-width: 480px) {
+  .sc-monitor {
+    display: none;
+  }
+
+  .sc-tab {
+    display: none;
+  }
+
+  .sc-phone {
+    display: block;
+  }
 }
