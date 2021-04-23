@@ -37,6 +37,18 @@ body {
   height: 100vh;
 }
 
+.sc-tab {
+  display: block;
+  height: 100vh;
+  color: #fff;
+}
+
+.sc-phone {
+  display: block;
+  height: 100vh;
+  color: #fff;
+}
+
 .status-bar {
   background: #00000044;
   display: flex;
@@ -434,18 +446,18 @@ body {
 .display .content .profile {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   padding: 50px 100px;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .display .content .profile .card {
-  background-color: #fcfcfc;
+  background-color: #f8f8f8;
+  width: 900px;
   padding: 50px 20px;
-  margin: 10px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   border-radius: 10px;
   font-family: 'hey-fun';
   box-shadow: 0px 0px 10px #ddd, 3px 3px 15px #aaa;
@@ -529,7 +541,7 @@ body {
 }
 
 .display .content .profile .school {
-  margin: 5px 50px;
+  margin: 10px 50px;
 }
 
 .display .content .profile .school .title {
@@ -549,7 +561,35 @@ body {
   color: #666;
 }
 
-.display .content .profile .interest {
+.display .content .profile .interests {
+}
+
+.display .content .profile .interests .items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.display .content .profile .interests > .title {
+  font-size: 50px;
+  font-family: 'hey-august';
+  text-align: center;
+}
+
+.display .content .profile .interests .items > .interest {
+  font-size: 16px;
+  font-family: 'hey-fun';
+  margin: 5px 50px;
+  width: 100px;
+}
+
+.display .content .profile .interests .items > .interest::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #888;
+  position: absolute;
+  transform: translate(-200%, 27%);
+  border-radius: 100%;
 }
 
 .display .content .profile .skills {
@@ -557,7 +597,7 @@ body {
 .display .content .profile .experiences {
 }
 .display .content .profile .experiences .experience {
-  margin: 5px 50px;
+  margin: 10px 50px;
 }
 
 .display .content .profile .experiences > .title {
@@ -588,8 +628,17 @@ body {
   display: none;
 }
 
-/* tab */
+/* hd */
 @media screen and (max-width: 1024px) {
+  .apps-section .apps {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+
+  .display .content .profile .card {
+    width: 100%;
+  }
+
   .display .content .profile .primary {
     align-items: flex-start;
     width: 100%;
@@ -600,7 +649,7 @@ body {
     width: 100%;
   }
 
-  .display .content .profile .interest {
+  .display .content .profile .interests {
     width: 100%;
   }
 
