@@ -402,6 +402,35 @@ body {
   text-align: center;
 }
 
+.apps-section .sidebar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: rgb(45, 45, 45);
+  padding: 10px;
+  border-radius: 0px 10px 10px 0px;
+  border: 1px #555 solid;
+  transform: translateY(-50%);
+}
+
+.apps-section .sidebar .app {
+  margin: 15px 5px;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+
+.apps-section .sidebar .app:hover {
+  background-color: #ffffff20;
+}
+
+.apps-section .sidebar .app .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 100%;
+}
+
 .display {
   background-color: #fff;
   height: 100%;

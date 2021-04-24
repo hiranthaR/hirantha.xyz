@@ -101,3 +101,11 @@ function closeDisplay() {
 function gotoRepository() {
   window.open('https://github.com/hiranthaR/hirantha.xyz', '_blank');
 }
+
+function openMail() {
+  window.open('mailto:mail@hirantha.xyz', '_blank');
+}
+
+function openCall() {
+  window.open('tel:+94712492630', '_blank');
+}

@@ -102,6 +102,40 @@
           <div class="search-bar">
             <input type="text" placeholder="Type to search" />
           </div>
+          <div class="sidebar">
+            <div class="app" onclick="showProfile();">
+              <div class="icon">
+                <img
+                  src="icons/profile.png"
+                  alt=""
+                  height="60px"
+                  width="60px"
+                />
+              </div>
+            </div>
+            <div class="app">
+              <div class="icon">
+                <img src="icons/cv.png" alt="" height="60px" width="60px" />
+              </div>
+            </div>
+
+            <div class="app">
+              <div class="icon">
+                <img
+                  src="icons/github.webp"
+                  alt=""
+                  height="60px"
+                  width="60px"
+                />
+              </div>
+            </div>
+
+            <div class="app" style="width: 80px; height: 80px">
+              <div class="icon">
+                <img src="icons/menu.png" alt="" height="45px" width="45px" />
+              </div>
+            </div>
+          </div>
           <div class="tics">
             <div class="tic active"></div>
             <div class="tic"></div>
@@ -120,14 +154,14 @@
               <div class="name">Profile</div>
             </div>
 
-            <div class="app">
+            <div class="app" onclick="openMail();">
               <div class="icon">
                 <img src="icons/email.png" alt="" height="90px" width="90px" />
               </div>
               <div class="name">Mail</div>
             </div>
 
-            <div class="app">
+            <div class="app" onclick="openCall();">
               <div class="icon">
                 <img src="icons/phone.png" alt="" height="90px" width="90px" />
               </div>
