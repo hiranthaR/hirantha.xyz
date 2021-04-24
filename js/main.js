@@ -97,3 +97,7 @@ function closeDisplay() {
   var displayContainer = document.getElementsByClassName('display');
   displayContainer[0].style.display = 'none';
 }
+
+function gotoRepository() {
+  window.open('https://github.com/hiranthaR/hirantha.xyz', '_blank');
+}
